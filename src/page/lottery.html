@@ -1,0 +1,89 @@
+<div class="">
+	<audio id="nainiu" src="static/music/nainiu.mp3"></audio>
+	<audio id="niunai" src="static/music/niunai.mp3"></audio>
+	<audio id="guzhang" src="static/music/guzhang.mp3"></audio>
+</div>
+<div class="wrap wrap2">
+	<img src="static/lottery/bg.jpg" alt="" class="bg">
+	<div class="wrap_body">
+		<div class="logo_vr">
+			<a href="javascript:;" class="rule" ng-click="mask='rule'">活动规则</a>
+			<img src="static/lottery/logo.png" alt="" class="logo">
+			<img src="static/lottery/info.png" alt="" class="info">
+		</div>
+		<div class="prompt"><span class="secret">你解锁了菁智有机世界的7个秘密</span><br><br><span class="chance">获得一次抽奖机会 </span>
+		</div>
+		<div class="lottery_start">
+			<img src="static/lottery/lottery.png" alt="" class="btn lottery" ng-click="lottery()">
+			<img src="static/lottery/show.png" alt="" class="btn show" ng-click="share1()">
+		</div>
+	</div>
+</div>
+
+<div class="mask" ng-show="mask == 'rule' || mask == 'share' || mask == 'noprize1' || mask == 'noprize2' || mask == 'prize'"></div>
+<div class="tan_rule" ng-show="mask == 'rule'">
+	<img src="static/index/close.png" alt="" class="close" ng-click="mask='close'"><br>
+	<div class="title">活动规则</div><br>
+	一、活动时间<br>
+	2017年6月14日-2017年6月20日 <br><br>
+	二、奖品设置<br>
+	互动大奖：一季度的菁智有机奶粉（菁智有机新品二段奶粉900g×10罐，价值4500元）,共5份每天抽取一位获奖用户<br><br>
+	三、参与方式<br>
+	通过VR全景探秘，解锁“菁智有机世界&脑洞科技世界”，共7个秘密，即可获得一次抽奖机会。<br><br>
+	四、活动说明<br>
+	1、活动期间，每次成功解锁7个秘密，即可获得抽奖机会一次。<br>
+	2、每个ID只有一次中奖机会。<br>
+	3、中奖后，需立即填写正确的手机号码及地址信息，填写错误或未填写视为放弃中奖资格。所填个人信息仅用于本次活动领取奖品使用。<br>
+	4、奖品将在活动结束后15个工作日内以快递形式发放，不再另行通知。<br>
+	5、一段产品不参加活动。<br><br>
+	本次活动最终解释权归雅培贸易（上海）有限公司所有
+</div>
+<div class="tan_share" ng-show="mask == 'share'" ng-click="mask = 'close'">
+	<img src="static/lottery/share.png" alt="" class="share">
+</div>
+
+<div class="tan_prize" ng-show="mask == 'noprize1'">
+	<div class="prize_info">
+		<img src="static/lottery/close1.png" alt="" class="close" ng-click="mask = 'close'">
+		<div>虽然你与大奖擦肩而过<br>
+			但菁智有机为你准备了<span>更多优惠</span><br><br>
+			 
+			<span>复制淘口令</span><br>
+			前往天猫<span>Eleva菁智旗舰店</span><br>
+			参与天猫618菁智黑科技趴，<br>
+			618全场<span>8折起</span>，折后<span>再享满额立减</span>，满额有礼，更有机会赢取<span>婴儿安全座椅，<br>科莱丽洗脸仪</span>等好礼<br><br>
+			
+			<span class="bac">eleva菁智旗舰店，使用￥菁智划时代营养元RRR￥抢先预览</span>
+			<br><span class="copy">（长按复制整段文案，打开手机淘宝即可进入活动内容）</span>
+		</div>
+	</div>
+</div>
+<div class="tan_prize" ng-show="mask == 'noprize2'">
+	<div class="prize_info">
+		<img src="static/lottery/close1.png" alt="" class="close" ng-click="mask = 'close'">
+		<div>虽然你与大奖擦肩而过<br> 
+			但菁智有机为你准备了更多优惠<br><br>
+			前往<span>雅培全国促销员门店</span><br>
+			<span class="strong" ng-show="line">新客首购2段有机奶粉可享<br><span class="">买一送一</span></span>
+			<span  class="strong1" ng-show="!line">新客首购2段有机奶粉，可享买一送一优惠</span>
+			<br>首购后扫码成为会员即可抽取现金红包<br>更有机会获得<br><br>
+			<span class="li4999">4999优厚大礼</span><br><br>
+			注：活动详情请联系雅培店内促销员
+		</div>
+	</div>
+</div>
+<div class="tan_prize" ng-show="mask == 'prize'">
+	<div class="prize_info prize_info_">
+		<img src="static/lottery/close1.png" alt="" class="close" ng-click="mask = 'close'">
+		<div class="prize_">恭喜你！<br>宝贝一季度的奶粉，<br>我们菁智有机承包了！<br>
+			 <img src="static/lottery/prize.png" alt="" class="prize">
+		</div>
+		<div class="person_info">
+			<div class="">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" name="" ng-model="name"></div>
+			<div class="">联系方式：<input type="tel" name="" ng-model="mobile"></div>
+			<div class="">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：<input type="text" name="" ng-model="address"></div>
+			<div class="zhu">注：请填写正确的手机号码及地址信息，填写错误或未填写视为放弃中奖资格。所填个人信息仅用于本次活动领取奖品使用 </div>
+			<img src="static/lottery/submit.png" alt="" class="submit" ng-click="submit()">
+		</div>
+	</div>
+</div>

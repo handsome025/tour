@@ -1,0 +1,51 @@
+<div class="wrap wrap1">
+	<img src="static/index/bg1.jpg" alt="" class="bg">
+	<div class="content">
+		<img src="static/index/load.png" alt="" class="load">
+		<div class="progress">
+			<div class="bar_bg"></div>
+			<div class="bar_du"></div>
+			<img src="static/index/flower.png" alt="" class="flower">
+		</div>
+		<div class="progress_num"><span class="percent"></span><br></div>
+	</div>
+</div>
+<div class="wrap wrap2" ng-show="step == 2">
+	<!-- <img src="static/index/bg1.jpg" alt="" class="bg"> -->
+	<div class="content">
+		<canvas id="step1" width="750" height="1334" style="" ng-show="!is_tour"></canvas>
+		<canvas id="step2" width="750" height="1334" style="" ng-show="is_tour"></canvas>
+		<!-- <img src="static/index/load.png" alt="" class="load"> -->
+		<div class="vr_body" ng-show="!is_tour">
+			<div class="logo_vr">
+				<a href="javascript:;" class="rule" ng-click="mask='rule'">活动规则</a>
+				<img src="static/index/logo.png" alt="" class="logo">
+				<img src="static/index/font.png" alt="" class="font">
+			</div>
+			<div class="vr_start">
+				<img src="static/index/start.png" alt="" class="start" ng-show="show_start" ng-click="start()"><br>
+				<!-- <img src="static/index/prize.png" alt="" class="prize"> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="mask" ng-show="mask == 'rule'"></div>
+<div class="tan_rule" ng-show="mask == 'rule'">
+	<img src="static/index/close.png" alt="" class="close" ng-click="mask='close'"><br>
+	<div class="title">活动规则</div><br>
+	一、活动时间<br>
+	2017年6月14日-2017年6月20日 <br><br>
+	二、奖品设置<br>
+	互动大奖：一季度的菁智有机奶粉（菁智有机新品二段奶粉900g×10罐，价值4500元）,共5份每天抽取一位获奖用户<br><br>
+	三、参与方式<br>
+	通过VR全景探秘，解锁“菁智有机世界&脑洞科技世界”，共7个秘密，即可获得一次抽奖机会。<br><br>
+	四、活动说明<br>
+	1、活动期间，每次成功解锁7个秘密，即可获得抽奖机会一次。<br>
+	2、每个ID只有一次中奖机会。<br>
+	3、中奖后，需立即填写正确的手机号码及地址信息，填写错误或未填写视为放弃中奖资格。所填个人信息仅用于本次活动领取奖品使用。<br>
+	4、奖品将在活动结束后15个工作日内以快递形式发放，不再另行通知。<br>
+	5、一段产品不参加活动。<br><br>
+	本次活动最终解释权归雅培贸易（上海）有限公司所有
+</div>
+

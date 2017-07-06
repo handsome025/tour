@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>canvas</title>
+
+<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+<script src="canvas.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	ss = ss||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+loader.loadFile({src:"images/canvas_atlas_.json", type:"spritesheet", id:"canvas_atlas_"}, true);
+loader.loadFile({src:"images/canvas_atlas_2.json", type:"spritesheet", id:"canvas_atlas_2"}, true);
+loader.loadFile({src:"images/canvas_atlas_3.json", type:"spritesheet", id:"canvas_atlas_3"}, true);
+loader.loadFile({src:"images/canvas_atlas_4.json", type:"spritesheet", id:"canvas_atlas_4"}, true);
+loader.loadFile({src:"images/canvas_atlas_5.json", type:"spritesheet", id:"canvas_atlas_5"}, true);
+loader.loadFile({src:"images/canvas_atlas_6.json", type:"spritesheet", id:"canvas_atlas_6"}, true);
+loader.loadFile({src:"images/canvas_atlas_7.json", type:"spritesheet", id:"canvas_atlas_7"}, true);
+loader.loadFile({src:"images/canvas_atlas_8.json", type:"spritesheet", id:"canvas_atlas_8"}, true);
+loader.loadFile({src:"images/canvas_atlas_9.json", type:"spritesheet", id:"canvas_atlas_9"}, true);
+loader.loadFile({src:"images/canvas_atlas_10.json", type:"spritesheet", id:"canvas_atlas_10"}, true);
+loader.loadFile({src:"images/canvas_atlas_11.json", type:"spritesheet", id:"canvas_atlas_11"}, true);
+loader.loadFile({src:"images/canvas_atlas_12.json", type:"spritesheet", id:"canvas_atlas_12"}, true);
+loader.loadFile({src:"images/canvas_atlas_13.json", type:"spritesheet", id:"canvas_atlas_13"}, true);
+loader.loadFile({src:"images/canvas_atlas_14.json", type:"spritesheet", id:"canvas_atlas_14"}, true);
+loader.loadFile({src:"images/canvas_atlas_15.json", type:"spritesheet", id:"canvas_atlas_15"}, true);
+loader.loadFile({src:"images/canvas_atlas_16.json", type:"spritesheet", id:"canvas_atlas_16"}, true);
+loader.loadFile({src:"images/canvas_atlas_17.json", type:"spritesheet", id:"canvas_atlas_17"}, true);
+loader.loadFile({src:"images/canvas_atlas_18.json", type:"spritesheet", id:"canvas_atlas_18"}, true);
+loader.loadFile({src:"images/canvas_atlas_19.json", type:"spritesheet", id:"canvas_atlas_19"}, true);
+loader.loadFile({src:"images/canvas_atlas_20.json", type:"spritesheet", id:"canvas_atlas_20"}, true);
+loader.loadFile({src:"images/canvas_atlas_21.json", type:"spritesheet", id:"canvas_atlas_21"}, true);
+loader.loadFile({src:"images/canvas_atlas_22.json", type:"spritesheet", id:"canvas_atlas_22"}, true);
+loader.loadFile({src:"images/canvas_atlas_23.json", type:"spritesheet", id:"canvas_atlas_23"}, true);
+loader.loadFile({src:"images/canvas_atlas_24.json", type:"spritesheet", id:"canvas_atlas_24"}, true);
+loader.loadFile({src:"images/canvas_atlas_25.json", type:"spritesheet", id:"canvas_atlas_25"}, true);
+loader.loadFile({src:"images/canvas_atlas_26.json", type:"spritesheet", id:"canvas_atlas_26"}, true);
+loader.loadFile({src:"images/canvas_atlas_27.json", type:"spritesheet", id:"canvas_atlas_27"}, true);
+loader.loadFile({src:"images/canvas_atlas_28.json", type:"spritesheet", id:"canvas_atlas_28"}, true);
+loader.loadFile({src:"images/canvas_atlas_29.json", type:"spritesheet", id:"canvas_atlas_29"}, true);
+loader.loadFile({src:"images/canvas_atlas_30.json", type:"spritesheet", id:"canvas_atlas_30"}, true);
+loader.loadFile({src:"images/canvas_atlas_31.json", type:"spritesheet", id:"canvas_atlas_31"}, true);
+loader.loadFile({src:"images/canvas_atlas_32.json", type:"spritesheet", id:"canvas_atlas_32"}, true);
+loader.loadFile({src:"images/canvas_atlas_33.json", type:"spritesheet", id:"canvas_atlas_33"}, true);
+loader.loadFile({src:"images/canvas_atlas_34.json", type:"spritesheet", id:"canvas_atlas_34"}, true);
+loader.loadFile({src:"images/canvas_atlas_35.json", type:"spritesheet", id:"canvas_atlas_35"}, true);
+loader.loadFile({src:"images/canvas_atlas_36.json", type:"spritesheet", id:"canvas_atlas_36"}, true);
+loader.loadFile({src:"images/canvas_atlas_37.json", type:"spritesheet", id:"canvas_atlas_37"}, true);
+loader.loadFile({src:"images/canvas_atlas_38.json", type:"spritesheet", id:"canvas_atlas_38"}, true);
+loader.loadFile({src:"images/canvas_atlas_39.json", type:"spritesheet", id:"canvas_atlas_39"}, true);
+loader.loadFile({src:"images/canvas_atlas_40.json", type:"spritesheet", id:"canvas_atlas_40"}, true);
+loader.loadFile({src:"images/canvas_atlas_41.json", type:"spritesheet", id:"canvas_atlas_41"}, true);
+loader.loadFile({src:"images/canvas_atlas_42.json", type:"spritesheet", id:"canvas_atlas_42"}, true);
+loader.loadFile({src:"images/canvas_atlas_43.json", type:"spritesheet", id:"canvas_atlas_43"}, true);
+loader.loadFile({src:"images/canvas_atlas_44.json", type:"spritesheet", id:"canvas_atlas_44"}, true);
+loader.loadFile({src:"images/canvas_atlas_45.json", type:"spritesheet", id:"canvas_atlas_45"}, true);
+loader.loadFile({src:"images/canvas_atlas_46.json", type:"spritesheet", id:"canvas_atlas_46"}, true);
+loader.loadFile({src:"images/canvas_atlas_47.json", type:"spritesheet", id:"canvas_atlas_47"}, true);
+loader.loadFile({src:"images/canvas_atlas_48.json", type:"spritesheet", id:"canvas_atlas_48"}, true);
+loader.loadFile({src:"images/canvas_atlas_49.json", type:"spritesheet", id:"canvas_atlas_49"}, true);
+loader.loadFile({src:"images/canvas_atlas_50.json", type:"spritesheet", id:"canvas_atlas_50"}, true);
+loader.loadFile({src:"images/canvas_atlas_51.json", type:"spritesheet", id:"canvas_atlas_51"}, true);
+loader.loadFile({src:"images/canvas_atlas_52.json", type:"spritesheet", id:"canvas_atlas_52"}, true);
+loader.loadFile({src:"images/canvas_atlas_53.json", type:"spritesheet", id:"canvas_atlas_53"}, true);
+loader.loadFile({src:"images/canvas_atlas_54.json", type:"spritesheet", id:"canvas_atlas_54"}, true);
+loader.loadFile({src:"images/canvas_atlas_55.json", type:"spritesheet", id:"canvas_atlas_55"}, true);
+loader.loadFile({src:"images/canvas_atlas_56.json", type:"spritesheet", id:"canvas_atlas_56"}, true);
+loader.loadFile({src:"images/canvas_atlas_57.json", type:"spritesheet", id:"canvas_atlas_57"}, true);
+loader.loadFile({src:"images/canvas_atlas_58.json", type:"spritesheet", id:"canvas_atlas_58"}, true);
+loader.loadFile({src:"images/canvas_atlas_59.json", type:"spritesheet", id:"canvas_atlas_59"}, true);
+loader.loadFile({src:"images/canvas_atlas_60.json", type:"spritesheet", id:"canvas_atlas_60"}, true);
+loader.loadFile({src:"images/canvas_atlas_61.json", type:"spritesheet", id:"canvas_atlas_61"}, true);
+loader.loadFile({src:"images/canvas_atlas_62.json", type:"spritesheet", id:"canvas_atlas_62"}, true);
+loader.loadFile({src:"images/canvas_atlas_63.json", type:"spritesheet", id:"canvas_atlas_63"}, true);
+loader.loadFile({src:"images/canvas_atlas_64.json", type:"spritesheet", id:"canvas_atlas_64"}, true);
+loader.loadFile({src:"images/canvas_atlas_65.json", type:"spritesheet", id:"canvas_atlas_65"}, true);
+loader.loadFile({src:"images/canvas_atlas_66.json", type:"spritesheet", id:"canvas_atlas_66"}, true);
+loader.loadFile({src:"images/canvas_atlas_67.json", type:"spritesheet", id:"canvas_atlas_67"}, true);
+loader.loadFile({src:"images/canvas_atlas_68.json", type:"spritesheet", id:"canvas_atlas_68"}, true);
+loader.loadFile({src:"images/canvas_atlas_69.json", type:"spritesheet", id:"canvas_atlas_69"}, true);
+loader.loadFile({src:"images/canvas_atlas_70.json", type:"spritesheet", id:"canvas_atlas_70"}, true);
+loader.loadFile({src:"images/canvas_atlas_71.json", type:"spritesheet", id:"canvas_atlas_71"}, true);
+loader.loadFile({src:"images/canvas_atlas_72.json", type:"spritesheet", id:"canvas_atlas_72"}, true);
+loader.loadFile({src:"images/canvas_atlas_73.json", type:"spritesheet", id:"canvas_atlas_73"}, true);
+loader.loadFile({src:"images/canvas_atlas_74.json", type:"spritesheet", id:"canvas_atlas_74"}, true);
+loader.loadFile({src:"images/canvas_atlas_75.json", type:"spritesheet", id:"canvas_atlas_75"}, true);
+loader.loadFile({src:"images/canvas_atlas_76.json", type:"spritesheet", id:"canvas_atlas_76"}, true);
+loader.loadFile({src:"images/canvas_atlas_77.json", type:"spritesheet", id:"canvas_atlas_77"}, true);
+loader.loadFile({src:"images/canvas_atlas_78.json", type:"spritesheet", id:"canvas_atlas_78"}, true);
+loader.loadFile({src:"images/canvas_atlas_79.json", type:"spritesheet", id:"canvas_atlas_79"}, true);
+loader.loadFile({src:"images/canvas_atlas_80.json", type:"spritesheet", id:"canvas_atlas_80"}, true);
+loader.loadFile({src:"images/canvas_atlas_81.json", type:"spritesheet", id:"canvas_atlas_81"}, true);
+loader.loadFile({src:"images/canvas_atlas_82.json", type:"spritesheet", id:"canvas_atlas_82"}, true);
+loader.loadFile({src:"images/canvas_atlas_83.json", type:"spritesheet", id:"canvas_atlas_83"}, true);
+loader.loadFile({src:"images/canvas_atlas_84.json", type:"spritesheet", id:"canvas_atlas_84"}, true);
+loader.loadFile({src:"images/canvas_atlas_85.json", type:"spritesheet", id:"canvas_atlas_85"}, true);
+loader.loadFile({src:"images/canvas_atlas_86.json", type:"spritesheet", id:"canvas_atlas_86"}, true);
+loader.loadFile({src:"images/canvas_atlas_87.json", type:"spritesheet", id:"canvas_atlas_87"}, true);
+loader.loadFile({src:"images/canvas_atlas_88.json", type:"spritesheet", id:"canvas_atlas_88"}, true);
+loader.loadFile({src:"images/canvas_atlas_89.json", type:"spritesheet", id:"canvas_atlas_89"}, true);
+loader.loadFile({src:"images/canvas_atlas_90.json", type:"spritesheet", id:"canvas_atlas_90"}, true);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	var queue = evt.target;
+	ss["canvas_atlas_"] = queue.getResult("canvas_atlas_");
+	ss["canvas_atlas_2"] = queue.getResult("canvas_atlas_2");
+	ss["canvas_atlas_3"] = queue.getResult("canvas_atlas_3");
+	ss["canvas_atlas_4"] = queue.getResult("canvas_atlas_4");
+	ss["canvas_atlas_5"] = queue.getResult("canvas_atlas_5");
+	ss["canvas_atlas_6"] = queue.getResult("canvas_atlas_6");
+	ss["canvas_atlas_7"] = queue.getResult("canvas_atlas_7");
+	ss["canvas_atlas_8"] = queue.getResult("canvas_atlas_8");
+	ss["canvas_atlas_9"] = queue.getResult("canvas_atlas_9");
+	ss["canvas_atlas_10"] = queue.getResult("canvas_atlas_10");
+	ss["canvas_atlas_11"] = queue.getResult("canvas_atlas_11");
+	ss["canvas_atlas_12"] = queue.getResult("canvas_atlas_12");
+	ss["canvas_atlas_13"] = queue.getResult("canvas_atlas_13");
+	ss["canvas_atlas_14"] = queue.getResult("canvas_atlas_14");
+	ss["canvas_atlas_15"] = queue.getResult("canvas_atlas_15");
+	ss["canvas_atlas_16"] = queue.getResult("canvas_atlas_16");
+	ss["canvas_atlas_17"] = queue.getResult("canvas_atlas_17");
+	ss["canvas_atlas_18"] = queue.getResult("canvas_atlas_18");
+	ss["canvas_atlas_19"] = queue.getResult("canvas_atlas_19");
+	ss["canvas_atlas_20"] = queue.getResult("canvas_atlas_20");
+	ss["canvas_atlas_21"] = queue.getResult("canvas_atlas_21");
+	ss["canvas_atlas_22"] = queue.getResult("canvas_atlas_22");
+	ss["canvas_atlas_23"] = queue.getResult("canvas_atlas_23");
+	ss["canvas_atlas_24"] = queue.getResult("canvas_atlas_24");
+	ss["canvas_atlas_25"] = queue.getResult("canvas_atlas_25");
+	ss["canvas_atlas_26"] = queue.getResult("canvas_atlas_26");
+	ss["canvas_atlas_27"] = queue.getResult("canvas_atlas_27");
+	ss["canvas_atlas_28"] = queue.getResult("canvas_atlas_28");
+	ss["canvas_atlas_29"] = queue.getResult("canvas_atlas_29");
+	ss["canvas_atlas_30"] = queue.getResult("canvas_atlas_30");
+	ss["canvas_atlas_31"] = queue.getResult("canvas_atlas_31");
+	ss["canvas_atlas_32"] = queue.getResult("canvas_atlas_32");
+	ss["canvas_atlas_33"] = queue.getResult("canvas_atlas_33");
+	ss["canvas_atlas_34"] = queue.getResult("canvas_atlas_34");
+	ss["canvas_atlas_35"] = queue.getResult("canvas_atlas_35");
+	ss["canvas_atlas_36"] = queue.getResult("canvas_atlas_36");
+	ss["canvas_atlas_37"] = queue.getResult("canvas_atlas_37");
+	ss["canvas_atlas_38"] = queue.getResult("canvas_atlas_38");
+	ss["canvas_atlas_39"] = queue.getResult("canvas_atlas_39");
+	ss["canvas_atlas_40"] = queue.getResult("canvas_atlas_40");
+	ss["canvas_atlas_41"] = queue.getResult("canvas_atlas_41");
+	ss["canvas_atlas_42"] = queue.getResult("canvas_atlas_42");
+	ss["canvas_atlas_43"] = queue.getResult("canvas_atlas_43");
+	ss["canvas_atlas_44"] = queue.getResult("canvas_atlas_44");
+	ss["canvas_atlas_45"] = queue.getResult("canvas_atlas_45");
+	ss["canvas_atlas_46"] = queue.getResult("canvas_atlas_46");
+	ss["canvas_atlas_47"] = queue.getResult("canvas_atlas_47");
+	ss["canvas_atlas_48"] = queue.getResult("canvas_atlas_48");
+	ss["canvas_atlas_49"] = queue.getResult("canvas_atlas_49");
+	ss["canvas_atlas_50"] = queue.getResult("canvas_atlas_50");
+	ss["canvas_atlas_51"] = queue.getResult("canvas_atlas_51");
+	ss["canvas_atlas_52"] = queue.getResult("canvas_atlas_52");
+	ss["canvas_atlas_53"] = queue.getResult("canvas_atlas_53");
+	ss["canvas_atlas_54"] = queue.getResult("canvas_atlas_54");
+	ss["canvas_atlas_55"] = queue.getResult("canvas_atlas_55");
+	ss["canvas_atlas_56"] = queue.getResult("canvas_atlas_56");
+	ss["canvas_atlas_57"] = queue.getResult("canvas_atlas_57");
+	ss["canvas_atlas_58"] = queue.getResult("canvas_atlas_58");
+	ss["canvas_atlas_59"] = queue.getResult("canvas_atlas_59");
+	ss["canvas_atlas_60"] = queue.getResult("canvas_atlas_60");
+	ss["canvas_atlas_61"] = queue.getResult("canvas_atlas_61");
+	ss["canvas_atlas_62"] = queue.getResult("canvas_atlas_62");
+	ss["canvas_atlas_63"] = queue.getResult("canvas_atlas_63");
+	ss["canvas_atlas_64"] = queue.getResult("canvas_atlas_64");
+	ss["canvas_atlas_65"] = queue.getResult("canvas_atlas_65");
+	ss["canvas_atlas_66"] = queue.getResult("canvas_atlas_66");
+	ss["canvas_atlas_67"] = queue.getResult("canvas_atlas_67");
+	ss["canvas_atlas_68"] = queue.getResult("canvas_atlas_68");
+	ss["canvas_atlas_69"] = queue.getResult("canvas_atlas_69");
+	ss["canvas_atlas_70"] = queue.getResult("canvas_atlas_70");
+	ss["canvas_atlas_71"] = queue.getResult("canvas_atlas_71");
+	ss["canvas_atlas_72"] = queue.getResult("canvas_atlas_72");
+	ss["canvas_atlas_73"] = queue.getResult("canvas_atlas_73");
+	ss["canvas_atlas_74"] = queue.getResult("canvas_atlas_74");
+	ss["canvas_atlas_75"] = queue.getResult("canvas_atlas_75");
+	ss["canvas_atlas_76"] = queue.getResult("canvas_atlas_76");
+	ss["canvas_atlas_77"] = queue.getResult("canvas_atlas_77");
+	ss["canvas_atlas_78"] = queue.getResult("canvas_atlas_78");
+	ss["canvas_atlas_79"] = queue.getResult("canvas_atlas_79");
+	ss["canvas_atlas_80"] = queue.getResult("canvas_atlas_80");
+	ss["canvas_atlas_81"] = queue.getResult("canvas_atlas_81");
+	ss["canvas_atlas_82"] = queue.getResult("canvas_atlas_82");
+	ss["canvas_atlas_83"] = queue.getResult("canvas_atlas_83");
+	ss["canvas_atlas_84"] = queue.getResult("canvas_atlas_84");
+	ss["canvas_atlas_85"] = queue.getResult("canvas_atlas_85");
+	ss["canvas_atlas_86"] = queue.getResult("canvas_atlas_86");
+	ss["canvas_atlas_87"] = queue.getResult("canvas_atlas_87");
+	ss["canvas_atlas_88"] = queue.getResult("canvas_atlas_88");
+	ss["canvas_atlas_89"] = queue.getResult("canvas_atlas_89");
+	ss["canvas_atlas_90"] = queue.getResult("canvas_atlas_90");
+	exportRoot = new lib.canvas();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="750" height="1334" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>
